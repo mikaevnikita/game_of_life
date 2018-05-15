@@ -1,7 +1,7 @@
 #ifndef Game_H
 #define Game_H
 
-#include "map.h"
+#include "worldwidget.h"
 
 #include <QObject>
 #include <QVector>

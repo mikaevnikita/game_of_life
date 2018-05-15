@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "map.h"
+#include "worldwidget.h"
 #include "settings.h"
 #include "game.h"
 
@@ -19,7 +19,7 @@ private:
     QWidget* mainWidget;
     QGridLayout* mainLayout;
 
-    Map* map;
+    WorldWidget* worldWidget;
     Settings* settingsWidget;
 
     QHBoxLayout* buttonsLayout;

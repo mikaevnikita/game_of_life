@@ -1,19 +1,19 @@
-#ifndef MAP_H
-#define MAP_H
+#ifndef WORLD_WIDGET_H
+#define WORLD_WIDGET_H
 
 #include <QTableWidget>
 #include <QVector>
 #include <QSettings>
 
-class Map : public QTableWidget
+class WorldWidget : public QTableWidget
 {
     Q_OBJECT
 
 public:
-    Map(QWidget* parent = nullptr);
-    Map(int rows, int columns, QWidget* parent = nullptr);
+    WorldWidget(QWidget* parent = nullptr);
+    WorldWidget(int rows, int columns, QWidget* parent = nullptr);
 
-private: // methods
+private:
     void init();
 
 signals:
@@ -26,4 +26,4 @@ private slots:
     void setCellColorByCondition(int row, int column, bool condition);
 };
 
-#endif // MAP_H
+#endif

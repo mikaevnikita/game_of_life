@@ -13,14 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    map.cpp \
+    mainwindow.cpp \
     game.cpp \
-    settings.cpp
+    settings.cpp \
+    worldwidget.cpp
 
 HEADERS  += mainwindow.h \
-    map.h \
     game.h \
-    settings.h
+    settings.h \
+    worldwidget.h
 
 FORMS +=

@@ -21,12 +21,12 @@ MainWindow::MainWindow(QWidget *parent)
     game = new Game;
     connect(game, SIGNAL(gameConditionSwitched(Game::GameCondition)), this, SLOT(switchStartButtonTextByGameCondition(Game::GameCondition)));
 
-    map = new Map;
-    connect(map, SIGNAL(cellClicked(int,int)), game, SLOT(switchCellCondition(int,int)));
-    connect(game, SIGNAL(cellClicked(int,int)), map, SLOT(switchBackground(int,int)));
-    connect(map, SIGNAL(initBinaryMap(int,int)), game, SLOT(initBinaryMap(int,int)));
-    connect(game, SIGNAL(setCellColorByCondition(int,int,bool)), map, SLOT(setCellColorByCondition(int,int,bool)));
-    mainLayout->addWidget(map, 0, 0, 1, mainLayout->columnCount());
+    worldWidget = new WorldWidget;
+    connect(worldWidget, SIGNAL(cellClicked(int,int)), game, SLOT(switchCellCondition(int,int)));
+    connect(game, SIGNAL(cellClicked(int,int)), worldWidget, SLOT(switchBackground(int,int)));
+    connect(worldWidget, SIGNAL(initBinaryMap(int,int)), game, SLOT(initBinaryMap(int,int)));
+    connect(game, SIGNAL(setCellColorByCondition(int,int,bool)), worldWidget, SLOT(setCellColorByCondition(int,int,bool)));
+    mainLayout->addWidget(worldWidget, 0, 0, 1, mainLayout->columnCount());
 
     buttonsLayout = new QHBoxLayout;
 
@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     clearButton = new QPushButton("Clear");
     clearButton->setMinimumSize(50, 50);
-    connect(clearButton, SIGNAL(clicked(bool)), map, SLOT(clear()));
+    connect(clearButton, SIGNAL(clicked(bool)), worldWidget, SLOT(clear()));
     connect(clearButton, SIGNAL(clicked(bool)), game, SLOT(clear()));
     buttonsLayout->addWidget(clearButton);
 
@@ -67,7 +67,7 @@ MainWindow::MainWindow(QWidget *parent)
     settingsWidget->hide();
     connect(this, SIGNAL(settingsRequest()), settingsWidget, SLOT(getSettingsRequest()));
     connect(settingsWidget, SIGNAL(sendSettings(QSettings&)), game, SLOT(getSettings(QSettings&)));
-    connect(settingsWidget, SIGNAL(sendSettings(QSettings&)), map, SLOT(getSettings(QSettings&)));
+    connect(settingsWidget, SIGNAL(sendSettings(QSettings&)), worldWidget, SLOT(getSettings(QSettings&)));
     connect(settingsWidget, SIGNAL(close()), this, SLOT(closeSettings()));
     cLayout->addWidget(settingsWidget);
 

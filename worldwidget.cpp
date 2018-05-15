@@ -1,14 +1,14 @@
-#include "map.h"
+#include "worldwidget.h"
 
 #include <QHeaderView>
 
-Map::Map(QWidget* parent)
+WorldWidget::WorldWidget(QWidget* parent)
     :QTableWidget(parent)
 {
     init();
 }
 
-Map::Map(int rows, int columns, QWidget *parent)
+WorldWidget::WorldWidget(int rows, int columns, QWidget *parent)
     :QTableWidget(rows, columns, parent)
 {
     emit initBinaryMap(rows, columns);
@@ -25,7 +25,7 @@ Map::Map(int rows, int columns, QWidget *parent)
     init();
 }
 
-void Map::init()
+void WorldWidget::init()
 {
     setSelectionMode(QAbstractItemView::NoSelection);
     setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -37,7 +37,7 @@ void Map::init()
     horizontalHeader()->hide();
 }
 
-void Map::switchBackground(int row, int column)
+void WorldWidget::switchBackground(int row, int column)
 {
     QTableWidgetItem* currItem = item(row, column);
 
@@ -47,7 +47,7 @@ void Map::switchBackground(int row, int column)
         currItem->setBackgroundColor(Qt::white);
 }
 
-void Map::getSettings(QSettings &settings)
+void WorldWidget::getSettings(QSettings &settings)
 {
     settings.beginGroup("/Settings");
     int rows = settings.value("/rows", rowCount()).toInt();
@@ -74,7 +74,7 @@ void Map::getSettings(QSettings &settings)
     }
 }
 
-void Map::setCellColorByCondition(int row, int column, bool condition)
+void WorldWidget::setCellColorByCondition(int row, int column, bool condition)
 {
     QTableWidgetItem* tempItem = item(row, column);
     if(condition == false)
