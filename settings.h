@@ -22,64 +22,64 @@ public:
     ~Settings();
 
 signals:
-    void            sendSettings(QSettings& settings);
-    void            close();
+    void sendSettings(QSettings& settings);
+    void close();
 
 private slots:
-    void            getSettingsRequest();
-    void            saveSettings();
-    void            cancelSettingsChanges();
-    void            minimumNumberToSurviveChanged(int minimum);
+    void getSettingsRequest();
+    void saveSettings();
+    void cancelSettingsChanges();
+    void minimumNumberToSurviveChanged(int minimum);
 
 private:
-    bool            isNumber(const QString& string);
+    bool isNumber(const QString& string);
 
-    void            readSettings();
-    void            writeSettings();
+    void readSettings();
+    void writeSettings();
 
 private:
-    QSettings       settings;
-    int             rows;
-    int             columns;
-    int             timer;
-    short           numberToAlive;
-    short           minimumNumberToSurvive;
-    short           maximumNumberToSurvive;
+    QSettings settings;
+    int rows;
+    int columns;
+    int timer;
+    short numberToAlive;
+    short minimumNumberToSurvive;
+    short maximumNumberToSurvive;
 
-    QGridLayout*    mainLayout;
+    QGridLayout* mainLayout;
 
-    QLabel*         mapSize;
+    QLabel* mapSize;
 
-    QHBoxLayout*    rowsLayout;
-    QLabel*         rowsText;
-    QLineEdit*      rowsBrowser;
-    QLabel*         rowsUncorrectValue;
+    QHBoxLayout* rowsLayout;
+    QLabel* rowsText;
+    QLineEdit* rowsBrowser;
+    QLabel* rowsUncorrectValue;
 
-    QHBoxLayout*    columnsLayout;
-    QLabel*         columnsText;
-    QLineEdit*      columnsBrowser;
-    QLabel*         columnsUncorrectValue;
+    QHBoxLayout* columnsLayout;
+    QLabel* columnsText;
+    QLineEdit* columnsBrowser;
+    QLabel* columnsUncorrectValue;
 
-    QLabel*         timerBrowser;
-    QSlider*        timerSlider;
-    QLabel*         timerValue;
+    QLabel* timerBrowser;
+    QSlider* timerSlider;
+    QLabel* timerValue;
 
-    QGridLayout*    gameSettingsLayout;
-    QLabel*         gameSettingsHeader;
-    QHBoxLayout*    numberToAliveLayout;
-    QLabel*         numberToAliveLabel;
-    QSpinBox*       numberToAliveField;
-    QHBoxLayout*    numberToSurviveLayout;
-    QLabel*         numberToSurviveFromLabel;
-    QSpinBox*       minimumNumberToSurviveField;
-    QLabel*         numberToSurviveToLabel;
-    QSpinBox*       maximumNumberToSurviveField;
+    QGridLayout* gameSettingsLayout;
+    QLabel* gameSettingsHeader;
+    QHBoxLayout* numberToAliveLayout;
+    QLabel* numberToAliveLabel;
+    QSpinBox* numberToAliveField;
+    QHBoxLayout* numberToSurviveLayout;
+    QLabel* numberToSurviveFromLabel;
+    QSpinBox* minimumNumberToSurviveField;
+    QLabel* numberToSurviveToLabel;
+    QSpinBox* maximumNumberToSurviveField;
 
-    QSpacerItem*    spacer;
+    QSpacerItem* spacer;
 
-    QHBoxLayout*    CancelAndApplyLayout;
-    QPushButton*    apply;
-    QPushButton*    cancel;
+    QHBoxLayout* CancelAndApplyLayout;
+    QPushButton* apply;
+    QPushButton* cancel;
 };
 
 #endif // SETTINGS_H

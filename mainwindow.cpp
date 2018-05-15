@@ -85,16 +85,12 @@ void MainWindow::openSettings()
 {
     mainWidget->hide();
     settingsWidget->setHidden(false);
-
-    qDebug() << "Интерфейс | Открыты настройки";
 }
 
 void MainWindow::closeSettings()
 {
     settingsWidget->hide();
     mainWidget->setHidden(false);
-
-    qDebug() << "Интерфейс | Закрыты настройки";
 }
 
 void MainWindow::switchStartButtonTextByGameCondition(Game::GameCondition condition)
