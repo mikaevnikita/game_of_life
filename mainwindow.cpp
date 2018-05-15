@@ -63,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     mainLayout->addLayout(buttonsLayout, mainLayout->rowCount() , 0);
 
-    settingsWidget = new Settings;
+    settingsWidget = new SettingsWidget;
     settingsWidget->hide();
     connect(this, SIGNAL(settingsRequest()), settingsWidget, SLOT(getSettingsRequest()));
     connect(settingsWidget, SIGNAL(sendSettings(QSettings&)), game, SLOT(getSettings(QSettings&)));

@@ -1,5 +1,5 @@
-#ifndef SETTINGS_H
-#define SETTINGS_H
+#ifndef SETTINGS_WIDGET_H
+#define SETTINGS_WIDGET_H
 
 #include <QWidget>
 #include <QGridLayout>
@@ -13,13 +13,12 @@
 #include <QSettings>
 #include <QSpinBox>
 
-class Settings : public QWidget
+class SettingsWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Settings(QWidget *parent = 0);
-    ~Settings();
+    explicit SettingsWidget(QWidget *parent = 0);
 
 signals:
     void sendSettings(QSettings& settings);
@@ -82,4 +81,4 @@ private:
     QPushButton* cancel;
 };
 
-#endif // SETTINGS_H
+#endif // SETTINGS_WIDGET_H

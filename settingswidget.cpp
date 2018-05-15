@@ -1,8 +1,8 @@
-#include "settings.h"
+#include "settingswidget.h"
 
 #include <QDebug>
 
-Settings::Settings(QWidget *parent) :
+SettingsWidget::SettingsWidget(QWidget *parent) :
     QWidget(parent)
 {
     readSettings();
@@ -131,11 +131,7 @@ Settings::Settings(QWidget *parent) :
     setLayout(mainLayout);
 }
 
-Settings::~Settings()
-{
-}
-
-bool Settings::isNumber(const QString &string)
+bool SettingsWidget::isNumber(const QString &string)
 {
     for(auto it = string.begin(); it != string.end(); ++it)
     {
@@ -148,7 +144,7 @@ bool Settings::isNumber(const QString &string)
     return true;
 }
 
-void Settings::readSettings()
+void SettingsWidget::readSettings()
 {
     settings.beginGroup("/Settings");
 
@@ -162,7 +158,7 @@ void Settings::readSettings()
     settings.endGroup();
 }
 
-void Settings::writeSettings()
+void SettingsWidget::writeSettings()
 {
     settings.beginGroup("/Settings");
 
@@ -176,12 +172,12 @@ void Settings::writeSettings()
     settings.endGroup();
 }
 
-void Settings::getSettingsRequest()
+void SettingsWidget::getSettingsRequest()
 {
     emit sendSettings(settings);
 }
 
-void Settings::saveSettings()
+void SettingsWidget::saveSettings()
 {
     timer = timerSlider->value();
     numberToAlive = numberToAliveField->value();
@@ -223,7 +219,7 @@ void Settings::saveSettings()
     emit close();
 }
 
-void Settings::cancelSettingsChanges()
+void SettingsWidget::cancelSettingsChanges()
 {
     rowsBrowser->setText(QString::number(rows));
     columnsBrowser->setText(QString::number(columns));
@@ -232,7 +228,7 @@ void Settings::cancelSettingsChanges()
     emit close();
 }
 
-void Settings::minimumNumberToSurviveChanged(int minimum)
+void SettingsWidget::minimumNumberToSurviveChanged(int minimum)
 {
     maximumNumberToSurviveField->setRange(minimum, 8);
 }

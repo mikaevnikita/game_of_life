@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include "worldwidget.h"
-#include "settings.h"
+#include "settingswidget.h"
 #include "game.h"
 
 #include <QMainWindow>
@@ -20,7 +20,7 @@ private:
     QGridLayout* mainLayout;
 
     WorldWidget* worldWidget;
-    Settings* settingsWidget;
+    SettingsWidget* settingsWidget;
 
     QHBoxLayout* buttonsLayout;
     QPushButton* startGameButton;

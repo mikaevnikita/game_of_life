@@ -15,12 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
     mainwindow.cpp \
     game.cpp \
-    settings.cpp \
-    worldwidget.cpp
+    worldwidget.cpp \
+    settingswidget.cpp
 
 HEADERS  += mainwindow.h \
     game.h \
-    settings.h \
-    worldwidget.h
+    worldwidget.h \
+    settingswidget.h
 
 FORMS +=
