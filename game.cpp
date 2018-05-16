@@ -196,19 +196,31 @@ Game::CellCondition Game::come_to_live(int row, int column)
 int Game::check_around(int row, int column)
 {
     int count = 0;
-
+    
     for(int i = row - 1; i <= row + 1; ++i)
     {
         for(int j = column - 1; j <= column + 1; ++j)
         {
-            if(is_correct_cords(i, j))
-            {
-                if(currentMap[i][j] == CellCondition::LIVE && (i != row ||  j != column))
-                    count++;
-            }
+            int curr_i = i;
+            int curr_j = j;
+            if(curr_i >= rows)
+                curr_i = curr_i % rows;
+            else if(curr_i < 0)
+                curr_i = rows + curr_i;
+            if(curr_j >= columns)
+                curr_j = curr_j % columns;
+            else if(curr_j < 0)
+                curr_j = columns + curr_j;
+            
+            if(i == row and j == column or !is_correct_cords(curr_i, curr_j))
+                continue;
+            
+            if(currentMap[curr_i][curr_j] == CellCondition::LIVE)
+                count++;
         }
     }
-
+    
+    
     return count;
 }
 
